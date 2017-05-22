@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class LambdaTest1 {
 
     public List<Dog> animalToDog() {
-        List list = new ArrayList();
+        List<Animal> list = new ArrayList();
         for (int i = 0; i < 10; i++) {
             list.add(new Animal("dog" + i, i));
         }
