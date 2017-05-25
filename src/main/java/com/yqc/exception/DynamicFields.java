@@ -47,8 +47,8 @@ class DynamicFieldsException{
 		public Object getFields(String id) throws NoSuchFieldException{
 			return fields[getFieldNumber(id)][1];
 		}
-//		public Object setFields (String id,Object value) throws DynamicFieldsException{
-//			if(value==null){
+//		public Object setFields (String id,Object name) throws DynamicFieldsException{
+//			if(name==null){
 //				DynamicFieldsException dfe=new DynamicFieldsException();
 //				dfe.
 //			}
