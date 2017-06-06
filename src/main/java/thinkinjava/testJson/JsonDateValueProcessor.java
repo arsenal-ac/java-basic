@@ -31,23 +31,23 @@ public class JsonDateValueProcessor implements JsonValueProcessor {
 		this.datePattern = format;
 	}
 
-	public Object processArrayValue(Object value, JsonConfig jsonConfig) {
-		return process(value);
+	public Object processArrayValue(Object name, JsonConfig jsonConfig) {
+		return process(name);
 	}
 
-	public Object processObjectValue(String key, Object value,
+	public Object processObjectValue(String key, Object name,
 			JsonConfig jsonConfig) {
-		return process(value);
+		return process(name);
 	}
 
-	private Object process(Object value) {
+	private Object process(Object name) {
 		try {
-			if (value instanceof Date) {
+			if (name instanceof Date) {
 				SimpleDateFormat sdf = new SimpleDateFormat(datePattern,
 						Locale.UK);
-				return sdf.format((Date) value);
+				return sdf.format((Date) name);
 			}
-			return value == null ? "" : value.toString();
+			return name == null ? "" : name.toString();
 		} catch (Exception e) {
 			return "";
 		}

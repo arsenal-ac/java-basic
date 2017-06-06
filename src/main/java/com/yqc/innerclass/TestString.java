@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 
 import java.lang.reflect.Field;
 import sun.misc.Unsafe;

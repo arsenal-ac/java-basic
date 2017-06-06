@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 /*
  * 面试题:
  *    要求请填空分别输出30,20,10.

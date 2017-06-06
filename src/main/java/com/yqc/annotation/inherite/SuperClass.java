@@ -5,4 +5,8 @@ package com.yqc.annotation.inherite;
  */
 @Greeting(name = "qicheng")
 public class SuperClass {
+
+    public void showName(@Greeting(name = "Nicholas") String name) {
+        System.out.println(name);
+    }
 }

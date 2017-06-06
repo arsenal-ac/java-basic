@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 /*
  * 链式编程
  *   每次调用方法完后，返回的是一个对象

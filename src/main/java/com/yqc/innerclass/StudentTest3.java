@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 
 public class StudentTest3 {
 

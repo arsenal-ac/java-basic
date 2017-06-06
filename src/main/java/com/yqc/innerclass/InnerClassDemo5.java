@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 
 /*
  * 局部内部类

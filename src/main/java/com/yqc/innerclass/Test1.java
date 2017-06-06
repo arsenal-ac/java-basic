@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 /*
  * 需求：访问Inner类的show()方法
  * Inner是成员内部类

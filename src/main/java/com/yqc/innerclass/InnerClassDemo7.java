@@ -1,4 +1,4 @@
-package com.yqc.innerClass;
+package com.yqc.innerclass;
 /*
  * 匿名内部类开发中使用
  *  弊端:只能使用一次

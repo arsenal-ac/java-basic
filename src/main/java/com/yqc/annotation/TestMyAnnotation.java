@@ -7,6 +7,6 @@ package com.yqc.annotation;
  *         2015.10.19
  */
 @MyAnnotation(value = "abc", arrayAttr = {1, 1}, annotationAttr = @MetaAnnotation(name = "ÄãºÃ"), a = String.class)
-public class TestMyAonnotion {
+public class TestMyAnnotation {
 
 }
