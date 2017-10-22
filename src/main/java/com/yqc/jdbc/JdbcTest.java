@@ -3,7 +3,6 @@ package com.yqc.jdbc;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +12,26 @@ import java.util.List;
  */
 public class JdbcTest {
 
+    static String seq;
+
+    static {
+        StringBuffer sb = new StringBuffer("");
+        for (int i = 0; i < 4999; i++) {
+            sb.append("c");
+        }
+        seq = sb.toString();
+    }
+
     /**
      * 获取数据库链接
      *
      * @return
      */
     private static Connection getConnection() {
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/zm?characterEncoding=utf8&useSSL=true";
-        String username = "root";
-        String password = "123";
+        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://192.168.10.15:1433;DatabaseName=kettle_test";
+        String username = "sa";
+        String password = "mssql@2017";
         Connection conn = null;
         try {
             Class.forName(driver); //classLoader,加载对应驱动
@@ -35,41 +44,39 @@ public class JdbcTest {
         return conn;
     }
 
-    private static int insert(List<ModelClass> list, String tableName) {
+    private static void insert(List<ModelClass> list, String tableName) {
         Connection conn = getConnection();
+        try {
+            conn.setAutoCommit(false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         int i = 0;
-        String sql = String.format("insert into %s (title,author,unit,periodical,time,number,place,region,ishospital) values(?,?,?,?,?,?,?,?,?)", tableName);
+        String sql = String.format("insert into %s (id,name,address,time) values(?,?,?,?)", tableName);
+        System.out.println(sql);
         PreparedStatement pstmt;
         try {
             pstmt = conn.prepareStatement(sql);
             for (ModelClass modelClass : list) {
-                String name = modelClass.getAuthor();
-                String[] names = name.split(";");
-                for (String n : names) {
-                    pstmt.setString(1, modelClass.getTitle());
-                    pstmt.setString(2, n);
-                    pstmt.setString(3, null);
-                    pstmt.setString(4, modelClass.getPeriodical());
-                    pstmt.setString(5, new SimpleDateFormat("yyyy").format(modelClass.getTime()));
-                    pstmt.setString(6, modelClass.getNumber());
-                    pstmt.setString(7, modelClass.getPlace());
-                    pstmt.setString(8, modelClass.getRegion());
-                    pstmt.setString(9, modelClass.getIshospital());
-                    pstmt.addBatch();
-                    i++;
-                    if (i / 1000 == 0) {
-                        pstmt.executeBatch();
-                        System.out.println("提交");
-                    }
+                pstmt.setInt(1, modelClass.getId());
+                pstmt.setString(2, modelClass.getName());
+                pstmt.setString(3, modelClass.getAddress());
+                pstmt.setDate(4, new java.sql.Date(modelClass.getTime().getTime()));
+                pstmt.addBatch();
+                i++;
+                if (i / 500 == 0) {
+                    pstmt.executeBatch();
+                    pstmt.clearBatch();//积攒的清楚掉
+//                        System.out.println("提交");
                 }
             }
             pstmt.executeBatch();
+            pstmt.close();
             conn.commit();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return i;
     }
 
     private static List<ModelClass> getAll(String tableName) {
@@ -119,9 +126,25 @@ public class JdbcTest {
         return String.valueOf(chars);
     }
 
+    public static String generateSeq() {
+        StringBuffer sb = new StringBuffer("");
+        for (int i = 0; i < 49998; i++) {
+            sb.append("c");
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        String table = "zhyxhqk";
-        List<ModelClass> list = getAll(table);
-        insert(list, table + "_author");
+        String table = "t_user";
+        List<ModelClass> list = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            ModelClass modelClass = new ModelClass();
+            modelClass.setId(i);
+            modelClass.setAddress("address" + i);
+            modelClass.setTime(new java.util.Date());
+            modelClass.setName(seq);
+            list.add(modelClass);
+        }
+        insert(list, table);
     }
 }
