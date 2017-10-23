@@ -1,7 +1,5 @@
 package com.yqc.jdbc;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,61 +75,6 @@ public class JdbcTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    private static List<ModelClass> getAll(String tableName) {
-        Connection conn = getConnection();
-        String sql = String.format("select * from %s", tableName);
-        PreparedStatement ps;
-        List<ModelClass> resultList = new ArrayList<>();
-        try {
-            ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            int col = rs.getMetaData().getColumnCount();
-            while (rs.next()) {
-                Object value;
-                ModelClass modelClass = new ModelClass();
-                for (int i = 1; i <= col; i++) {
-                    String columnName = rs.getMetaData().getColumnName(i);
-                    String methodName = "set" + firstCharToUpperCase(columnName);
-                    Method method = modelClass.getClass().getMethod(methodName, modelClass.getClass().getDeclaredField(columnName).getType());
-                    if (columnName.equals("time")) {
-                        value = rs.getDate(i);
-                        method.invoke(modelClass, (Date) value);
-                    } else if (columnName.equals("id")) {
-                        value = rs.getInt(i);
-                        method.invoke(modelClass, (Integer) value);
-                    } else {
-                        value = rs.getString(i);
-                        method.invoke(modelClass, (String) value);
-                    }
-                }
-                resultList.add(modelClass);
-            }
-        } catch (SQLException | NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-        return resultList;
-    }
-
-    public static String firstCharToUpperCase(String str) {
-        char[] chars = str.toCharArray();
-        chars[0] -= 32;
-        return String.valueOf(chars);
-    }
-
-    public static String generateSeq() {
-        StringBuffer sb = new StringBuffer("");
-        for (int i = 0; i < 49998; i++) {
-            sb.append("c");
-        }
-        return sb.toString();
     }
 
     public static void main(String[] args) {
