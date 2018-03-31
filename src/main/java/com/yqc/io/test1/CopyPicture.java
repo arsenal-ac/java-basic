@@ -2,46 +2,48 @@ package com.yqc.io.test1;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/*
- * ¸´ÖÆÍ¼Æ¬
- *   ×Ö½ÚÁ÷
- *   4ÖÖ·½Ê½
+/**
+ * å¤åˆ¶å›¾ç‰‡
+ * å­—èŠ‚æµ
+ * 4ç§æ–¹å¼
  */
 public class CopyPicture {
-	public static void main(String[] args) throws IOException {
-		// String srcString="FileÀà.png";
-		// Ê¹ÓÃFile¶ÔÏó×÷Îª²ÎÊı
-		File srcFile = new File("FileÀà.png");
-		File destFile = new File("D:\\help.png");
-		// method1(srcFile,destFile);
-		method2(srcFile, destFile);
-		// method3(srcFile,destFile);
-		// method4(srcFile,destFile);
-	}
 
-	private static void method2(File srcFile, File destFile) throws IOException {
-		FileInputStream fis = new FileInputStream(srcFile);
-		FileOutputStream fos = new FileOutputStream(destFile);
-		byte[] chs = new byte[1024];
-		int len = 0;
-		while ((len = fis.read(chs)) != -1)
-			fos.write(chs, 0, len);
-		fis.close();
-		fos.close();
-	}
+  public static void main(String[] args) throws IOException {
+    // String srcString="Fileç±».png";
+    // ä½¿ç”¨Fileå¯¹è±¡ä½œä¸ºå‚æ•°
+    File srcFile = new File("Fileç±».png");
+    File destFile = new File("D:\\help.png");
+    // method1(srcFile,destFile);
+    method2(srcFile, destFile);
+    // method3(srcFile,destFile);
+    // method4(srcFile,destFile);
+  }
 
-	// Ò»´Î¶ÁĞ´Ò»¸ö×Ö½Ú
-	private static void method1(File srcFile, File destFile) throws IOException {
-		FileInputStream fis = new FileInputStream(srcFile);
-		FileOutputStream fos = new FileOutputStream(destFile);
-		int ch = 0;
-		while ((ch = fis.read()) != -1)
-			fos.write(ch);
-		fis.close();
-		fos.close();
-	}
+  private static void method2(File srcFile, File destFile) throws IOException {
+    FileInputStream fis = new FileInputStream(srcFile);
+    FileOutputStream fos = new FileOutputStream(destFile);
+    byte[] chs = new byte[1024];
+    int len = 0;
+    while ((len = fis.read(chs)) != -1) {
+      fos.write(chs, 0, len);
+    }
+    fis.close();
+    fos.close();
+  }
+
+  // ä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—èŠ‚
+  private static void method1(File srcFile, File destFile) throws IOException {
+    FileInputStream fis = new FileInputStream(srcFile);
+    FileOutputStream fos = new FileOutputStream(destFile);
+    int ch = 0;
+    while ((ch = fis.read()) != -1) {
+      fos.write(ch);
+    }
+    fis.close();
+    fos.close();
+  }
 }

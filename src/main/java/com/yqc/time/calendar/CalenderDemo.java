@@ -2,20 +2,21 @@ package com.yqc.time.calendar;
 
 import java.util.Calendar;
 
-/*
+/**
  * Calendar
- * 
- * public int get(int field)·µ»Ø¸ø¶¨ÈÕÀú×Ö¶ÎµÄÖµ
- * ÈÕÀúÀàÖĞµÄÃ¿¸ö×Ö¶Î¶¼ÊÇ¾²Ì¬µÄ³ÉÔ±±äÁ¿£¬²¢ÇÒ¶¼ÊÇintÀàĞÍ
+ *
+ * public int get(int field)è¿”å›ç»™å®šæ—¥å†å­—æ®µçš„å€¼
+ * æ—¥å†ç±»ä¸­çš„æ¯ä¸ªå­—æ®µéƒ½æ˜¯é™æ€çš„æˆå‘˜å˜é‡ï¼Œå¹¶ä¸”éƒ½æ˜¯intç±»å‹
  * 2015.10.7
  */
 public class CalenderDemo {
-	public static void main(String[] args) {
-		Calendar rightNow=Calendar.getInstance();
-		//»ñÈ¡Äê
-		int year=rightNow.get(Calendar.YEAR);
-		int month=rightNow.get(Calendar.MONTH);
-		int day=rightNow.get(Calendar.DAY_OF_MONTH);
-		System.out.println(year+"Äê"+(month+1)+"ÔÂ"+day+"ÈÕ");
-	}
+
+  public static void main(String[] args) {
+    Calendar rightNow = Calendar.getInstance();
+    //è·å–å¹´
+    int year = rightNow.get(Calendar.YEAR);
+    int month = rightNow.get(Calendar.MONTH);
+    int day = rightNow.get(Calendar.DAY_OF_MONTH);
+    System.out.println(year + "å¹´" + (month + 1) + "æœˆ" + day + "æ—¥");
+  }
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * LRU缓存初步实现,超过10个则清除最少使用的
- * 
+ *
  * @author yangqc 2016年12月19日
  * @param <K>
  * @param <V>

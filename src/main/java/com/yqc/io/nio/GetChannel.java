@@ -6,30 +6,34 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+
 /**
- * ÐÂIO¼òµ¥²âÊÔ
- * FileOutputStream FileInputStream RandomAccessFile ¿ÉÒÔ»ñÈ¡Í¨µÀ
- * µ«ÊÇReaderºÍWriter²»ÄÜ»ñÈ¡Í¨µÀ
- * ÒòÎªÍ¨µÀµ×²ã±Ï¾¹Ò²ÊÇ×Ö½ÚÁ÷
+ * ï¿½ï¿½IOï¿½òµ¥²ï¿½ï¿½ï¿½
+ * FileOutputStream FileInputStream RandomAccessFile ï¿½ï¿½ï¿½Ô»ï¿½È¡Í¨ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½Readerï¿½ï¿½Writerï¿½ï¿½ï¿½Ü»ï¿½È¡Í¨ï¿½ï¿½
+ * ï¿½ï¿½ÎªÍ¨ï¿½ï¿½ï¿½×²ï¿½Ï¾ï¿½Ò²ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+ *
  * @author yangqc
  * 2016/6/1
  */
 public class GetChannel {
-	private static final int BSIZE=1024;
-	public static void main(String[] args) throws IOException {
-		FileChannel fc=new FileOutputStream("data.txt").getChannel();    //»ñÈ¡Í¨µÀ 
-		fc.write(ByteBuffer.wrap("Some text \n".getBytes()));  //Ð´Èë
-		fc.close();
-		fc=new RandomAccessFile("data.txt","rw").getChannel();
-		fc.position(fc.size());
-		fc.write(ByteBuffer.wrap("Some more".getBytes()));
-		fc.close();
-		fc=new FileInputStream("data.txt").getChannel();
-		ByteBuffer buff=ByteBuffer.allocate(BSIZE);
-		fc.read(buff);
-		buff.flip();   //Ò»µ©µ÷ÓÃread¾Í±ØÐëµ÷ÓÃflipÈÃ»º³åÇø×öºÃÈÃ±ðÈË¶ÁÈ¡Êý¾ÝµÄ×¼±¸
-		while(buff.hasRemaining()){
-			System.out.print((char)buff.get());
-		}
-	}
+
+  private static final int BSIZE = 1024;
+
+  public static void main(String[] args) throws IOException {
+    FileChannel fc = new FileOutputStream("data.txt").getChannel();    //ï¿½ï¿½È¡Í¨ï¿½ï¿½
+    fc.write(ByteBuffer.wrap("Some text \n".getBytes()));  //Ð´ï¿½ï¿½
+    fc.close();
+    fc = new RandomAccessFile("data.txt", "rw").getChannel();
+    fc.position(fc.size());
+    fc.write(ByteBuffer.wrap("Some more".getBytes()));
+    fc.close();
+    fc = new FileInputStream("data.txt").getChannel();
+    ByteBuffer buff = ByteBuffer.allocate(BSIZE);
+    fc.read(buff);
+    buff.flip();   //Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½readï¿½Í±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½flipï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½Ë¶ï¿½È¡ï¿½ï¿½ï¿½Ýµï¿½×¼ï¿½ï¿½
+    while (buff.hasRemaining()) {
+      System.out.print((char) buff.get());
+    }
+  }
 }

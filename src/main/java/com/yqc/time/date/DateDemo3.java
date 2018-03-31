@@ -4,34 +4,35 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/*
- * ÈÕÆÚ¸ñÊ½»¯
+/**
+ * æ—¥æœŸæ ¼å¼åŒ–
  * Date----String
- *   public final String format(Date date)
- *   
+ * public final String format(Date date)
+ *
  * String---Date
- * 
- * DateFormat¿ÉÒÔ½øĞĞÈÕÆÚºÍ×Ö·û´®µÄ¸ñÊ½»¯ºÍ½âÎö
- * 
- * SimpleDateFormat¹¹Ôì·½·¨
- * 
- * SimpleDateFormat()Ä¬ÈÏÄ£Ê½
- * SimpleDateFormat(String pattern)¸ø¶¨Ä£Ê½
- * 
+ *
+ * DateFormatå¯ä»¥è¿›è¡Œæ—¥æœŸå’Œå­—ç¬¦ä¸²çš„æ ¼å¼åŒ–å’Œè§£æ
+ *
+ * SimpleDateFormatæ„é€ æ–¹æ³•
+ *
+ * SimpleDateFormat()é»˜è®¤æ¨¡å¼
+ * SimpleDateFormat(String pattern)ç»™å®šæ¨¡å¼
+ *
  * 2015.10.7
  */
 public class DateDemo3 {
-	public static void main(String[] args) throws ParseException {
-		//´´½¨Date
-		Date d=new Date();
-		//SimpleDateFormat sdf=new SimpleDateFormat();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HH:mm:ss");
-		String s=sdf.format(d);
-		System.out.println(s);
-		
-		String str="2008-08-08 12:12:12";
-		SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date date=sdf2.parse(str);
-		System.out.println("date:"+date);
-	}
+
+  public static void main(String[] args) throws ParseException {
+    //åˆ›å»ºDate
+    Date d = new Date();
+    //SimpleDateFormat sdf=new SimpleDateFormat();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HH:mm:ss");
+    String s = sdf.format(d);
+    System.out.println(s);
+
+    String str = "2008-08-08 12:12:12";
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = sdf2.parse(str);
+    System.out.println("date:" + date);
+  }
 }

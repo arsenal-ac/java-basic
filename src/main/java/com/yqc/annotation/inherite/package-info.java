@@ -4,10 +4,10 @@
 package com.yqc.annotation.inherite;
 
 /**
- * @Inherited Ôª×¢½âÊÇÒ»¸ö±ê¼Ç×¢½â£¬@Inherited²ûÊöÁËÄ³¸ö±»±ê×¢µÄÀàĞÍÊÇ±»¼Ì³ĞµÄ¡£Èç¹ûÒ»¸öÊ¹ÓÃÁË@InheritedĞŞÊÎµÄannotationÀàĞÍ±»ÓÃÓÚÒ»¸öclass£¬
- * ÔòÕâ¸öannotation½«±»ÓÃÓÚ¸ÃclassµÄ×ÓÀà¡£
- * ×¢Òâ£º@Inherited annotationÀàĞÍÊÇ±»±ê×¢¹ıµÄclassµÄ×ÓÀàËù¼Ì³Ğ¡£Àà²¢²»´ÓËüËùÊµÏÖµÄ½Ó¿Ú¼Ì³Ğannotation£¬·½·¨²¢²»´ÓËüËùÖØÔØµÄ·½·¨¼Ì³Ğannotation¡£
- * µ±@Inherited annotationÀàĞÍ±ê×¢µÄannotationµÄRetentionÊÇRetentionPolicy.RUNTIME£¬Ôò·´ÉäAPIÔöÇ¿ÁËÕâÖÖ¼Ì³ĞĞÔ¡£
- * Èç¹ûÎÒÃÇÊ¹ÓÃjava.lang.reflectÈ¥²éÑ¯Ò»¸ö@Inherited annotationÀàĞÍµÄannotationÊ±£¬·´Éä´úÂë¼ì²é½«Õ¹¿ª¹¤×÷£º¼ì²éclassºÍÆä¸¸Àà£¬
- * Ö±µ½·¢ÏÖÖ¸¶¨µÄannotationÀàĞÍ±»·¢ÏÖ£¬»òÕßµ½´ïÀà¼Ì³Ğ½á¹¹µÄ¶¥²ã¡£
+ * @Inherited å…ƒæ³¨è§£æ˜¯ä¸€ä¸ªæ ‡è®°æ³¨è§£ï¼Œ@Inheritedé˜è¿°äº†æŸä¸ªè¢«æ ‡æ³¨çš„ç±»å‹æ˜¯è¢«ç»§æ‰¿çš„ã€‚å¦‚æœä¸€ä¸ªä½¿ç”¨äº†@Inheritedä¿®é¥°çš„annotationç±»å‹è¢«ç”¨äºä¸€ä¸ªclassï¼Œ
+ * åˆ™è¿™ä¸ªannotationå°†è¢«ç”¨äºè¯¥classçš„å­ç±»ã€‚
+ * æ³¨æ„ï¼š@Inherited annotationç±»å‹æ˜¯è¢«æ ‡æ³¨è¿‡çš„classçš„å­ç±»æ‰€ç»§æ‰¿ã€‚ç±»å¹¶ä¸ä»å®ƒæ‰€å®ç°çš„æ¥å£ç»§æ‰¿annotationï¼Œæ–¹æ³•å¹¶ä¸ä»å®ƒæ‰€é‡è½½çš„æ–¹æ³•ç»§æ‰¿annotationã€‚
+ * å½“@Inherited annotationç±»å‹æ ‡æ³¨çš„annotationçš„Retentionæ˜¯RetentionPolicy.RUNTIMEï¼Œåˆ™åå°„APIå¢å¼ºäº†è¿™ç§ç»§æ‰¿æ€§ã€‚
+ * å¦‚æœæˆ‘ä»¬ä½¿ç”¨java.lang.reflectå»æŸ¥è¯¢ä¸€ä¸ª@Inherited annotationç±»å‹çš„annotationæ—¶ï¼Œåå°„ä»£ç æ£€æŸ¥å°†å±•å¼€å·¥ä½œï¼šæ£€æŸ¥classå’Œå…¶çˆ¶ç±»ï¼Œ
+ * ç›´åˆ°å‘ç°æŒ‡å®šçš„annotationç±»å‹è¢«å‘ç°ï¼Œæˆ–è€…åˆ°è¾¾ç±»ç»§æ‰¿ç»“æ„çš„é¡¶å±‚ã€‚
  **/

@@ -6,9 +6,9 @@ import java.util.Map;
 
 /**
  * HashMap的四种遍历方式
- * 
+ *
  * 其实第二种和第三种是一种方式,因为forEach就是一种语法糖
- * 
+ *
  * @author yangqc
  *
  */
@@ -24,8 +24,8 @@ public class HashMapTest {
 		 */
 		System.out.println("通过Map.keySet遍历key和value");
 		for (Integer key : hashMap.keySet()) {
-            System.out.println("key: " + key + " , name: " + hashMap.get(key));
-        }
+			System.out.println("key: " + key + " , name: " + hashMap.get(key));
+		}
 
 		// Iterator<Integer> it = hashMap.keySet().iterator();
 		// while (it.hasNext()) {
@@ -36,13 +36,13 @@ public class HashMapTest {
 		Iterator<Map.Entry<Integer, String>> iterator = hashMap.entrySet().iterator();
 		while (iterator.hasNext()) {
 			Map.Entry<Integer, String> entry = iterator.next();
-            System.out.println("key: " + entry.getKey() + " , name: " + entry.getValue());
-        }
+			System.out.println("key: " + entry.getKey() + " , name: " + entry.getValue());
+		}
 
 		System.out.println("通过Map.entrySet遍历key和value");
 		for (Map.Entry<Integer, String> entry : hashMap.entrySet()) {
-            System.out.println("key: " + entry.getKey() + " , name: " + entry.getValue());
-        }
+			System.out.println("key: " + entry.getKey() + " , name: " + entry.getValue());
+		}
 
 		System.out.println("通过Map.values()遍历所有的value,但不能遍历key");
 		for (String value : hashMap.values()) {
