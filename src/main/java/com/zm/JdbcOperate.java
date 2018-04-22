@@ -32,7 +32,8 @@ public class JdbcOperate {
     String password = "123";
     Connection conn = null;
     try {
-      Class.forName(driver); //classLoader,加载对应驱动
+      //classLoader,加载对应驱动
+      Class.forName(driver);
       conn = DriverManager.getConnection(url, username, password);
     } catch (ClassNotFoundException e) {
       e.printStackTrace();

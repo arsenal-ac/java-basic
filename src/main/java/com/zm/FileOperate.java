@@ -54,7 +54,7 @@ public class FileOperate {
       if (line.contains("标题")) {
         arrays[0] = operateTitle(line);
       } else if (line.contains("作者单位")) {
-        arrays[2] = operateAuthor(line);
+        arrays[2] = operateAuthorCompany(line);
       } else if (line.contains("作者")) {
         arrays[1] = operateAuthor(line);
       } else if (line.contains("出处")) {
@@ -92,6 +92,14 @@ public class FileOperate {
     return names;
   }
 
+  private static String operateAuthorCompany(String content) {
+    String names = "";
+    if (content != null && content.length() > 0) {
+      names = content.split(":")[1];
+    }
+    return names;
+  }
+
   /**
    * 处理作者
    */
@@ -120,7 +128,13 @@ public class FileOperate {
       return new String[]{"不详", "不详"};
     }
     String s1 = arrays[1];
-    String[] s2 = new String[]{s1.split(";")[0], s1.split(";")[1]};
+    String year = "";
+    if ((year = s1.split(";")[1]) != null && year.length() > 0) {
+      if (year.split("\\.").length > 0) {
+        year = year.split("\\.")[0];
+      }
+    }
+    String[] s2 = new String[]{s1.split(";")[0], year};
     return s2;
   }
 
